@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AyosNow – May problema? I-picture. I-report. Ipaayos.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#1d5fd1;--blue-d:#1648a3;--blue-l:#e6efff;--bg:#f4f6fa;--card:#fff;--ink:#14213d;--mute:#5b6679;--line:#e3e8f0;--ok:#16a34a;--ok-l:#dcfce7;--warn:#d97706;--warn-l:#fef3c7;--bad:#dc2626;--bad-l:#fee2e2;--sh:0 2px 10px rgba(20,33,61,.07);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1424;--card:#172038;--ink:#e8edf8;--mute:#9aa7bf;--line:#26314d;--blue-l:#1b2b52;--ok-l:#12331f;--warn-l:#3a2a0b;--bad-l:#3b1616;--sh:0 2px 10px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{--bg:#0e1424;--card:#172038;--ink:#e8edf8;--mute:#9aa7bf;--line:#26314d;--blue-l:#1b2b52;--ok-l:#12331f;--warn-l:#3a2a0b;--bad-l:#3b1616;--sh:0 2px 10px rgba(0,0,0,.35)}
+html{scroll-padding-top:calc(70px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--blue);text-decoration:none}
+h1,h2,h3{line-height:1.2;margin:0 0 .5em;letter-spacing:-.02em}
+h1{font-size:clamp(2rem,7vw,3.4rem);font-weight:800}h2{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:800}h3{font-size:1.1rem;font-weight:700}
+p{margin:0 0 1em}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+section{padding:46px 0}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--card);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:14px;height:62px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.25rem;color:var(--ink)}
+.logo svg{width:30px;height:30px}
+.links{display:none;align-items:center;gap:4px;margin-left:auto}
+.links a{padding:8px 11px;border-radius:10px;color:var(--ink);font-weight:600;font-size:.93rem}
+.links a:hover{background:var(--blue-l)}
+.burger{margin-left:auto;background:none;border:1px solid var(--line);border-radius:10px;width:44px;height:44px;color:var(--ink);font-size:1.3rem;cursor:pointer}
+.mnav{display:none;flex-direction:column;padding:8px 18px 16px;border-top:1px solid var(--line)}
+.mnav.open{display:flex}.mnav a{padding:13px 4px;color:var(--ink);font-weight:600;border-bottom:1px solid var(--line)}
+@media(min-width:900px){.links{display:flex}.burger{display:none}.mnav{display:none!important}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:14px;border:2px solid var(--blue);background:var(--blue);color:#fff;font:700 1rem inherit;font-family:inherit;cursor:pointer;text-align:center}
+.btn:hover{background:var(--blue-d);border-color:var(--blue-d)}
+.btn.ghost{background:transparent;color:var(--blue)}.btn.ghost:hover{background:var(--blue-l)}
+.btn.ok{background:var(--ok);border-color:var(--ok)}.btn.bad{background:var(--bad);border-color:var(--bad)}
+.btn.bad.ghost,.btn.ok.ghost{background:transparent}.btn.bad.ghost{color:var(--bad)}.btn.ok.ghost{color:var(--ok)}
+.btn.sm{min-height:38px;padding:0 14px;font-size:.88rem;border-radius:11px}
+.btn.block{width:100%}
+.card{background:var(--card);border-radius:20px;box-shadow:var(--sh);padding:20px;border:1px solid var(--line)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}.g3{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.hero{padding:34px 0 40px;background:linear-gradient(180deg,var(--blue-l),var(--bg))}
+.hero .wrap{display:grid;gap:26px;align-items:center}
+@media(min-width:860px){.hero .wrap{grid-template-columns:1.1fr .9fr}}
+.hero p.sub{font-size:1.15rem;color:var(--mute);max-width:34em}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.cat{cursor:pointer;display:flex;gap:14px;align-items:flex-start;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:18px;padding:16px;font:inherit;color:inherit;box-shadow:var(--sh)}
+.cat:hover{border-color:var(--blue)}
+.cat .ic{font-size:1.7rem;width:50px;height:50px;border-radius:14px;background:var(--blue-l);display:grid;place-items:center;flex:none}
+.cat b{display:block}.cat span.d{color:var(--mute);font-size:.88rem}
+label{display:block;font-weight:600;font-size:.92rem;margin:0 0 6px}
+input,select,textarea{width:100%;min-height:48px;padding:11px 14px;border:1.5px solid var(--line);border-radius:12px;font:inherit;background:var(--card);color:var(--ink)}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus,.btn:focus-visible,.cat:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.f{margin-bottom:14px}.two{display:grid;gap:14px}@media(min-width:620px){.two{grid-template-columns:1fr 1fr}}
+.hint{color:var(--mute);font-size:.84rem;margin-top:4px}
+.photo{border:2px dashed var(--blue);border-radius:16px;padding:16px;text-align:center;background:var(--blue-l)}
+.photo img.pv{max-width:100%;max-height:260px;border-radius:12px;margin-top:12px;display:none}
+.seg{display:flex;gap:10px}.seg label{flex:1;margin:0}
+.seg input{position:absolute;opacity:0;pointer-events:none;min-height:0;width:0}
+.seg span{display:flex;align-items:center;justify-content:center;min-height:48px;border:2px solid var(--line);border-radius:12px;font-weight:700;cursor:pointer}
+.seg input:checked+span{border-color:var(--blue);background:var(--blue-l);color:var(--blue)}
+.seg input[value=Urgent]:checked+span{border-color:var(--warn);background:var(--warn-l);color:var(--warn)}
+.seg input:focus-visible+span{outline:3px solid var(--blue)}
+.badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:.78rem;font-weight:700;background:var(--blue-l);color:var(--blue)}
+.badge.ok{background:var(--ok-l);color:var(--ok)}.badge.warn{background:var(--warn-l);color:var(--warn)}.badge.bad{background:var(--bad-l);color:var(--bad)}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{position:relative;padding:0 0 22px 46px}
+.tl li:before{content:"";position:absolute;left:15px;top:30px;bottom:0;width:3px;background:var(--line)}
+.tl li:last-child:before{display:none}
+.tl .dot{position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--card);border:3px solid var(--line);display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--mute)}
+.tl li.done:before{background:var(--ok)}.tl li.done .dot{background:var(--ok);border-color:var(--ok);color:#fff}
+.tl li.now .dot{border-color:var(--blue);color:var(--blue);box-shadow:0 0 0 5px var(--blue-l)}
+.tl li b{display:block}.tl li span{color:var(--mute);font-size:.9rem}
+.steps{counter-reset:s}.step{position:relative}.step .n{width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:10px}
+.safety{background:var(--warn-l);border:2px solid var(--warn);border-radius:20px;padding:22px;display:flex;gap:16px}
+.safety .ic{font-size:2rem}
+.stars{color:#f59e0b;letter-spacing:2px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+summary{font-weight:700;cursor:pointer}
+footer{background:#0f1b36;color:#cdd7ec;padding:40px 0 30px}footer a{color:#cdd7ec}
+footer .fl{display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0}
+.dash{display:grid;gap:18px;padding:22px 0 50px}
+@media(min-width:900px){.dash{grid-template-columns:220px 1fr}}
+.side{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px}
+@media(min-width:900px){.side{flex-direction:column;overflow:visible;position:sticky;top:80px;align-self:start}}
+.side button{white-space:nowrap;text-align:left;border:0;background:transparent;font:600 .95rem inherit;font-family:inherit;color:var(--ink);padding:11px 14px;border-radius:12px;cursor:pointer;min-height:44px}
+.side button.on{background:var(--blue);color:#fff}.side button:hover:not(.on){background:var(--blue-l)}
+.stat{padding:16px}.stat b{font-size:1.8rem;display:block;line-height:1.1}.stat span{color:var(--mute);font-size:.85rem}
+.rq{display:grid;gap:12px}.rq img.th{width:100%;height:170px;object-fit:cover;border-radius:14px;background:var(--line)}
+.meta{color:var(--mute);font-size:.88rem}
+.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:560px}th,td{padding:10px;text-align:left;border-bottom:1px solid var(--line);font-size:.9rem;vertical-align:top}th{color:var(--mute);font-weight:700}
+.msgs{max-height:260px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:6px 0}
+.msg{max-width:80%;padding:9px 13px;border-radius:14px;background:var(--blue-l);align-self:flex-start;font-size:.93rem}.msg.me{background:var(--blue);color:#fff;align-self:flex-end}
+.bar{height:10px;background:var(--blue-l);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#14213d;color:#fff;padding:12px 20px;border-radius:14px;z-index:99;box-shadow:var(--sh);max-width:92vw;font-weight:600}
+.note{background:var(--warn-l);border-radius:12px;padding:10px 14px;font-size:.88rem;margin-bottom:14px}
+.empty{text-align:center;padding:30px;color:var(--mute)}
+.narrow{max-width:560px;margin:0 auto}
+.center{text-align:center}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="nav">
+    <a class="logo" href="#/" aria-label="AyosNow home"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#1d5fd1"/><path d="M21.5 6.5a5.5 5.5 0 0 0-5.2 7.2L7.6 22.4a2 2 0 0 0 2.8 2.8l8.7-8.7a5.5 5.5 0 0 0 7.2-5.2l-3.3 3.3-2.6-.6-.6-2.6z" fill="#fff"/></svg>AyosNow</a>
+    <nav class="links" id="links"></nav>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+  <nav class="mnav" id="mnav"></nav>
+</div></header>
+<main id="app"></main>
+<footer><div class="wrap">
+  <div class="logo" style="color:#fff">AyosNow</div>
+  <p style="margin:6px 0 0">May problema? I-picture. I-report. Ipaayos.</p>
+  <div class="fl"><a href="#/">Home</a><a href="#/services">Services</a><a href="#/how">How It Works</a><a href="#/track">Track Request</a><a href="#/about">About</a><a href="#/contact">Contact</a><a href="#/faq">FAQ</a><a href="#/privacy">Privacy Policy</a><a href="#/terms">Terms &amp; Conditions</a></div>
+  <p style="margin:0;font-size:.88rem">© 2026 AyosNow. All rights reserved.</p>
+</div></footer>
+
+<script>
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4);
+const fmt=t=>new Date(t).toLocaleString('en-PH',{dateStyle:'medium',timeStyle:'short'});
+function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3200)}
+let memStore={};
+const ls={get(k){try{return localStorage.getItem(k)}catch(e){return memStore[k]??null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){memStore[k]=v}},del(k){try{localStorage.removeItem(k)}catch(e){delete memStore[k]}}};
+
+/* ---------- data ---------- */
+const DEFAULT_CATS=[
+['electrical','⚡','Electrical','Wires, outlets, switches, lights','electrician wiring outlet switch light'],
+['plumbing','🚰','Plumbing','Leaking pipes, faucets, clogged drains','plumber leak pipe faucet drain'],
+['aircon','❄️','Aircon & Cooling','Aircon and electric fan problems','aircon ac cooling fan'],
+['appliance','🔧','Appliance Repair','Refrigerator, washing machine, TV, etc.','appliance refrigerator washing machine tv'],
+['computer','💻','Phone & Computer','Broken phones, computers, software problems','phone computer laptop software cellphone'],
+['wifi','📶','Internet & Wi-Fi','Router and connection problems','internet wifi router connection'],
+['vehicle','🚗','Vehicle Assistance','Flat tire, battery problems, minor roadside assistance','car vehicle tire battery roadside'],
+['home','🏠','Home Repair','Doors, roofs, ceilings, tiles, walls','door roof ceiling tiles wall mason'],
+['carpentry','🔨','Carpentry','Cabinets, furniture, shelves','carpenter cabinet furniture shelf'],
+['painting','🎨','Painting','Wall and house painting','paint painter wall'],
+['cleaning','🧹','Cleaning','House and room cleaning','clean cleaner maid'],
+['gardening','🌳','Gardening','Grass cutting and garden maintenance','garden grass lawn'],
+['locksmith','🔑','Locksmith','Locks and key-related problems','lock key locksmith'],
+['other','🛠️','Other Services','Problems that do not fit the categories','other']
+].map(([id,icon,title,desc,kw])=>({id,icon,title,desc,kw,active:true}));
+const STEPS=[['received','Request Received',"The system received the user's request."],['finding','Finding Technician','The system is looking for an available technician.'],['accepted','Technician Accepted','A technician accepted the request.'],['enroute','Technician On the Way',"The technician is going to the customer's location."],['completed','Repair Completed','The service has been completed.']];
+const SAMPLE_REVIEWS=[['Maria S.',5,'Plumbing','I uploaded a photo of my leaking pipe and quickly found a plumber.'],['Jon R.',5,'Aircon & Cooling','Nakita agad ng technician sa picture kung anong sira. Mabilis at malinis ang trabaho.'],['Liza P.',4,'Internet & Wi-Fi','Easy to use on my phone. I just took a photo of my router and described the problem.']];
+
+const S={users:[],requests:[],cats:DEFAULT_CATS,cfg:{email:'support@ayosnow.example',phone:'0900 000 0000'},db:null,mode:'local',isOwner:false,uid:null,ready:false};
+let route='',sess=ls.get('ayos_sess'),adminTab='overview',techTab='dashboard',custTab='requests',tFilter={cat:'',loc:'',urg:'',avail:''},finder={q:'',cat:'',loc:'',avail:''};
+const me=()=>S.users.find(u=>u.id===sess);
+const catOf=id=>S.cats.find(c=>c.id===id)||{icon:'🛠️',title:'Other Services'};
+const isAdmin=()=>S.isOwner||(S.mode==='local');
+
+async function initStore(){
+  let db=null,user=null;
+  try{if(window.claude){db=await claude.use('db');user=await claude.use('user');}}catch(e){}
+  S.isOwner=!!(user&&user.isOwner&&user.isOwner());
+  if(db){
+    S.db=db;S.mode='cloud';
+    try{S.uid=user&&user.id?await user.id():null}catch(e){}
+    const sub=(path,fn)=>db.collection(path).onSnapshot(q=>{fn(q.docs.map(d=>({id:d.id,...d.data()})));if(S.ready)render(true)},()=>{});
+    sub('users',a=>S.users=a);
+    sub('requests',a=>S.requests=a.sort((x,y)=>y.createdAt-x.createdAt));
+    db.doc('config/main').onSnapshot(d=>{const v=d.data();if(v){if(v.cats)S.cats=v.cats;if(v.cfg)S.cfg=v.cfg;}if(S.ready)render(true)},()=>{});
+  }else{
+    try{const d=JSON.parse(ls.get('ayos_db')||'{}');S.users=d.users||[];S.requests=d.requests||[];S.cats=d.cats||DEFAULT_CATS;S.cfg=d.cfg||S.cfg}catch(e){}
+  }
+  S.ready=true;
+}
+function persistLocal(){ls.set('ayos_db',JSON.stringify({users:S.users,requests:S.requests,cats:S.cats,cfg:S.cfg}))}
+async function put(col,obj){
+  const arr=col==='users'?S.users:S.requests;
+  const i=arr.findIndex(x=>x.id===obj.id);
+  if(i>=0)arr[i]=obj;else arr.unshift(obj);
+  if(S.db){
+    const {id,...body}=obj;
+    try{await S.db.doc(col+'/'+id).set(JSON.parse(JSON.stringify(body)));return true}
+    catch(e){toast("Couldn't save. This page needs contributor access to store data.");return false}
+  }
+  persistLocal();return true;
+}
+async function saveConfig(){
+  if(S.db){try{await S.db.doc('config/main').set({cats:S.cats,cfg:S.cfg})}catch(e){toast("Couldn't save settings.")}}else persistLocal();
+}
+async function hash(email,pw){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('ayos|'+email.toLowerCase()+'|'+pw));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+function compress(file,max=900,q=.72){return new Promise((res,rej)=>{const r=new FileReader();r.onerror=rej;r.onload=()=>{const im=new Image();im.onerror=rej;im.onload=()=>{const k=Math.min(1,max/Math.max(im.width,im.height));const c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',q))};im.src=r.result};r.readAsDataURL(file)})}
+function dist(a,b){if(!a||!b||a.lat==null||b.lat==null)return null;const R=6371,t=x=>x*Math.PI/180,dl=t(b.lat-a.lat),dn=t(b.lng-a.lng),h=Math.sin(dl/2)**2+Math.cos(t(a.lat))*Math.cos(t(b.lat))*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
+function getGPS(cb){if(!navigator.geolocation)return toast('Location is not available on this device.');navigator.geolocation.getCurrentPosition(p=>cb({lat:+p.coords.latitude.toFixed(5),lng:+p.coords.longitude.toFixed(5)}),()=>toast('Could not get your location. You can type it instead.'),{timeout:10000})}
+
+/* ---------- nav ---------- */
+function navLinks(){
+  const u=me();
+  const base=[['#/','Home'],['#/services','Services'],['#/how','How It Works'],['#/track','Track Request']];
+  let acct=u?`<a href="#/dashboard">${u.role==='technician'?'Technician':u.role==='admin'?'Admin':'My Account'}</a><a href="#" onclick="logout();return false">Logout</a>`:`<a href="#/login">Login</a><a href="#/signup">Sign Up</a>`;
+  if(!u&&isAdmin())acct+=`<a href="#/admin">Admin</a>`;
+  const cta=`<a class="btn sm" href="#/request">Get Help</a>`;
+  const html=base.map(([h,t])=>`<a href="${h}">${t}</a>`).join('')+acct;
+  $('#links').innerHTML=html+cta;
+  $('#mnav').innerHTML=html+`<a class="btn" style="margin-top:12px;color:#fff" href="#/request">Get Help</a>`;
+}
+$('#burger').onclick=()=>{const o=$('#mnav').classList.toggle('open');$('#burger').setAttribute('aria-expanded',o)};
+function logout(){sess=null;ls.del('ayos_sess');location.hash='#/';render()}
+
+/* ---------- views ---------- */
+const heroSVG=`<svg viewBox="0 0 420 340" role="img" aria-label="Person taking a photo of a leaking faucet" style="width:100%;height:auto"><rect x="10" y="20" width="400" height="300" rx="28" fill="var(--card)" stroke="var(--line)"/><rect x="250" y="70" width="110" height="14" rx="7" fill="#9fb1cc"/><rect x="262" y="84" width="16" height="50" rx="4" fill="#9fb1cc"/><path d="M262 134q0 14 14 14h36" stroke="#9fb1cc" stroke-width="14" fill="none" stroke-linecap="round"/><rect x="300" y="150" width="16" height="14" fill="#7d90af"/><path d="M308 176c-9 14-9 22 0 22s9-8 0-22z" fill="#3b8bff"/><path d="M308 214c-7 10-7 17 0 17s7-6 0-17z" fill="#3b8bff" opacity=".7"/><ellipse cx="308" cy="290" rx="52" ry="10" fill="#3b8bff" opacity=".25"/><circle cx="110" cy="112" r="30" fill="#f2c9a0"/><path d="M80 108a30 30 0 0 1 60 0c-14-8-44-8-60 0z" fill="#14213d"/><path d="M62 300v-76a48 48 0 0 1 96 0v76z" fill="#1d5fd1"/><path d="M150 232l50-52" stroke="#f2c9a0" stroke-width="16" stroke-linecap="round"/><g transform="rotate(-14 200 150)"><rect x="176" y="96" width="62" height="100" rx="12" fill="#14213d"/><rect x="182" y="104" width="50" height="78" rx="6" fill="#dbe9ff"/><circle cx="207" cy="143" r="16" fill="none" stroke="#1d5fd1" stroke-width="4"/><circle cx="207" cy="143" r="5" fill="#1d5fd1"/></g><path d="M246 128l18-8M246 150h22M246 172l18 8" stroke="#16a34a" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 8"/></svg>`;
+
+function catCards(list){return list.length?list.map(c=>`<button class="cat" onclick="pickCat('${c.id}')"><span class="ic">${c.icon}</span><span><b>${esc(c.title)}</b><span class="d">${esc(c.desc)}</span></span></button>`).join(''):`<div class="empty">No service matched. Try “Other Services”.</div>`}
+function pickCat(id){location.hash='#/request';setTimeout(()=>{const s=$('#r_cat');if(s)s.value=id;window.scrollTo({top:0,behavior:'smooth'})},50)}
+function filterCats(){
+  const q=($('#svq')?.value||'').toLowerCase().trim();
+  const list=S.cats.filter(c=>c.active!==false&&(!q||(c.title+' '+c.desc+' '+(c.kw||'')).toLowerCase().includes(q)));
+  $('#catgrid').innerHTML=catCards(list);
+  finder.q=q;renderFinder();
+}
+function renderFinder(){
+  const el=$('#finder');if(!el)return;
+  const f={cat:$('#fc')?.value||'',loc:($('#fl')?.value||'').toLowerCase().trim(),av:$('#fa')?.value||''};
+  const q=finder.q||'';
+  let ts=S.users.filter(u=>u.role==='technician'&&u.status==='approved');
+  ts=ts.filter(t=>(!f.cat||t.spec===f.cat)&&(!f.loc||(t.address||'').toLowerCase().includes(f.loc))&&(!f.av||(f.av==='yes')===(t.available!==false))&&(!q||(catOf(t.spec).title+' '+(catOf(t.spec).kw||'')+' '+(t.skills||'')).toLowerCase().includes(q)));
+  el.innerHTML=ts.length?ts.map(t=>`<div class="card"><b>${esc(t.name)}</b> <span class="badge ok">Verified</span><div class="meta">${catOf(t.spec).icon} ${esc(catOf(t.spec).title)} · ${esc(t.years||0)} yrs</div><div class="meta">${t.available!==false?'🟢 Available':'⚪ Busy'} · ${esc((t.address||'').split(',').slice(-1)[0])}</div></div>`).join(''):`<div class="empty">No approved professionals match yet. You can still send a request and the right one will see it.</div>`;
+}
+function homeView(){
+  const cats=S.cats.filter(c=>c.active!==false);
+  const reviews=[...S.requests.filter(r=>r.review).slice(0,3).map(r=>[r.name.split(' ')[0],r.review.rating,catOf(r.cat).title,r.review.text]),...SAMPLE_REVIEWS].slice(0,3);
+  return `
+<div class="hero"><div class="wrap">
+  <div><h1>May problema? I-picture. I-report. Ipaayos.</h1>
+  <p class="sub">Upload a photo, describe the problem, and find the right service professional to help you.</p>
+  <div class="row"><a class="btn" href="#/request">📷 Request a Service</a><a class="btn ghost" href="#/how">How It Works</a></div></div>
+  <div>${heroSVG}</div>
+</div></div>
+
+<section id="services"><div class="wrap">
+  <h2>Anong kailangan mong ipaayos?</h2>
+  <div class="f" style="max-width:520px"><label for="svq">What do you need help with?</label><input id="svq" type="search" placeholder="electrician, plumber, aircon repair, computer repair…" oninput="filterCats()"></div>
+  <div class="grid g2" id="catgrid">${catCards(cats)}</div>
+  <h3 style="margin-top:30px">Find a professional</h3>
+  <div class="grid g3" style="margin-bottom:14px">
+    <div><label for="fc">Service category</label><select id="fc" onchange="renderFinder()"><option value="">All services</option>${cats.map(c=>`<option value="${c.id}">${c.icon} ${esc(c.title)}</option>`).join('')}</select></div>
+    <div><label for="fl">Location</label><input id="fl" placeholder="Barangay or city" oninput="renderFinder()"></div>
+    <div><label for="fa">Availability</label><select id="fa" onchange="renderFinder()"><option value="">Any</option><option value="yes">Available now</option><option value="no">Busy</option></select></div>
+  </div>
+  <div class="grid g3" id="finder"></div>
+</div></section>
+
+<section id="quick" style="background:var(--blue-l)"><div class="wrap"><div class="narrow" style="max-width:720px">
+  <h2>Need help now?</h2><p class="meta">Takes about a minute. No account needed.</p>
+  ${requestForm()}
+</div></div></section>
+
+<section id="how"><div class="wrap">
+  <h2>How it works</h2>
+  <div class="grid g3 steps">
+    ${[['Take a photo','Take a clear picture of the problem.'],['Submit a request','Choose the service and explain the problem.'],['Find a professional','AyosNow connects the request with an available service provider.'],['Get it fixed','Coordinate with the technician and complete the repair.']].map(([t,d],i)=>`<div class="card step"><div class="n">${i+1}</div><h3>Step ${i+1} — ${t}</h3><p class="meta">${d}</p></div>`).join('')}
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Why AyosNow?</h2>
+  <div class="grid g3">
+  ${[['📷','Photo-Based Requests','Users can show the actual problem.'],['📍','Location-Based Service','Help can be matched according to location.'],['🛠️','Multiple Services','One platform for different repair and maintenance needs.'],['🔔','Request Updates','Users can track the progress of their request.'],['📱','Mobile Friendly','Designed to work well on smartphones.'],['👨‍🔧','Verified Professionals','Technicians can be reviewed and approved by the platform.']].map(([i,t,d])=>`<div class="card"><div style="font-size:1.8rem">${i}</div><h3>${t}</h3><p class="meta" style="margin:0">${d}</p></div>`).join('')}
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="safety"><div class="ic">⚠️</div><div><h3>Safety First</h3><p style="margin:0">Do not attempt dangerous repairs yourself. For exposed electrical wires, fire hazards, gas leaks, serious vehicle problems, or other dangerous situations, keep a safe distance and contact a qualified professional or appropriate emergency service.</p></div></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>What our users say</h2>
+  <div class="grid g3">${reviews.map(([n,r,s,t])=>`<div class="card"><div class="stars">${'★'.repeat(r)}${'☆'.repeat(5-r)}</div><p><b>“${esc(t)}”</b></p><div class="meta">${esc(n)} · ${esc(s)}</div></div>`).join('')}</div>
+  <p class="meta" style="margin-top:10px">Sample reviews are shown until customers add their own.</p>
+</div></section>
+
+<section id="faq"><div class="wrap narrow">
+  <h2>Frequently asked questions</h2>
+  ${[['What services are available?','AyosNow supports different repair, maintenance, technical, cleaning, and assistance services.'],['Can I upload a photo?','Yes. Users can take a photo using their phone camera or upload one from their gallery.'],['Can I track my request?','Yes. Every request receives a unique request number.'],['Can technicians see my request?','Available technicians can see the information necessary to evaluate and accept a service request.'],['Is AyosNow responsible for the repair?','AyosNow connects customers with service providers. Service agreements and responsibilities should be clearly presented to users.']].map(([q,a])=>`<details><summary>${q}</summary><p style="margin:.6em 0 0">${a}</p></details>`).join('')}
+</div></section>`;
+}
+
+let pendingPhoto=null,pendingGPS=null;
+function requestForm(){
+  const u=me();
+  return `<div class="card"><form id="rform" onsubmit="submitRequest(event)">
+  <div class="two"><div class="f"><label for="r_name">Full Name</label><input id="r_name" required autocomplete="name" value="${esc(u?.name||'')}"></div>
+  <div class="f"><label for="r_phone">Contact Number</label><input id="r_phone" required type="tel" inputmode="tel" autocomplete="tel" value="${esc(u?.phone||'')}" placeholder="09XX XXX XXXX"></div></div>
+  <div class="f"><label for="r_cat">Service Category</label><select id="r_cat" required><option value="">Choose a service</option>${S.cats.filter(c=>c.active!==false).map(c=>`<option value="${c.id}">${c.icon} ${esc(c.title)}</option>`).join('')}</select></div>
+  <div class="f"><label>Upload or Take Photo</label><div class="photo">
+    <div class="row" style="justify-content:center"><button type="button" class="btn sm" onclick="$('#cam').click()">📷 Take Photo</button><button type="button" class="btn sm ghost" onclick="$('#gal').click()">🖼️ Choose from Gallery</button></div>
+    <input id="cam" type="file" accept="image/*" capture="environment" hidden onchange="onPhoto(this)"><input id="gal" type="file" accept="image/*" hidden onchange="onPhoto(this)">
+    <div class="hint">A clear, well-lit photo helps the technician understand the problem.</div>
+    <img class="pv" id="pv" alt="Preview of your photo"></div></div>
+  <div class="f"><label for="r_desc">Problem Description</label><textarea id="r_desc" required placeholder="Describe what is wrong. Example: The kitchen faucet is leaking and water keeps coming out even when it is closed."></textarea></div>
+  <div class="two"><div class="f"><label for="r_house">House/Building</label><input id="r_house" required autocomplete="address-line1"></div>
+  <div class="f"><label for="r_brgy">Barangay</label><input id="r_brgy" required></div></div>
+  <div class="f"><label for="r_city">Municipality/City</label><input id="r_city" required autocomplete="address-level2"></div>
+  <div class="f"><label for="r_note">Additional location instructions</label><input id="r_note" placeholder="Near the barangay hall, blue gate."></div>
+  <div class="f"><button type="button" class="btn sm ghost" onclick="useGPS()" id="gpsb">📍 Pin my location (optional)</button><div class="hint" id="gpsh"></div></div>
+  <div class="two"><div class="f"><label for="r_sched">Preferred Schedule</label><input id="r_sched" type="datetime-local"></div>
+  <div class="f"><label>Urgency</label><div class="seg"><label><input type="radio" name="urg" value="Normal" checked><span>Normal</span></label><label><input type="radio" name="urg" value="Urgent"><span>Urgent</span></label></div></div></div>
+  <div class="note">⚠️ If there are exposed wires, fire, or a gas smell, stay away and call emergency services first.</div>
+  <button class="btn block" id="subbtn">Submit Repair Request</button></form></div>`;
+}
+async function onPhoto(inp){
+  const f=inp.files[0];if(!f)return;
+  try{pendingPhoto=await compress(f);const pv=$('#pv');pv.src=pendingPhoto;pv.style.display='inline-block'}catch(e){toast('That photo could not be read. Try another one.')}
+}
+function useGPS(){getGPS(g=>{pendingGPS=g;$('#gpsh').textContent='Location pinned ✔ ('+g.lat+', '+g.lng+')'})}
+async function submitRequest(e){
+  e.preventDefault();
+  if(!pendingPhoto&&!confirm('You have not added a photo. Photos help technicians a lot. Submit without one?'))return;
+  const id='AYOS-'+String(Math.floor(100000+Math.random()*900000));
+  const now=Date.now();
+  const r={id,uid:sess||null,name:$('#r_name').value.trim(),phone:$('#r_phone').value.trim(),cat:$('#r_cat').value,photo:pendingPhoto||'',desc:$('#r_desc').value.trim(),house:$('#r_house').value.trim(),brgy:$('#r_brgy').value.trim(),city:$('#r_city').value.trim(),note:$('#r_note').value.trim(),geo:pendingGPS||null,sched:$('#r_sched').value,urgency:document.querySelector('input[name=urg]:checked').value,status:'finding',history:[{s:'received',t:now},{s:'finding',t:now+1}],createdAt:now,techId:null,declined:[],messages:[]};
+  $('#subbtn').disabled=true;
+  const ok=await put('requests',r);
+  $('#subbtn').disabled=false;
+  if(!ok)return;
+  pendingPhoto=null;pendingGPS=null;
+  location.hash='#/confirm/'+id;
+}
+function statusBadge(s){const m={received:['Request Received',''],finding:['Finding Technician','warn'],accepted:['Technician Accepted',''],enroute:['Technician On the Way',''],completed:['Repair Completed','ok'],cancelled:['Cancelled','bad']}[s]||[s,''];return `<span class="badge ${m[1]}">${m[0]}</span>`}
+function addr(r,full){return full?`${r.house}, ${r.brgy}, ${r.city}${r.note?' ('+r.note+')':''}`:`${r.brgy}, ${r.city}`}
+
+function confirmView(id){
+  const r=S.requests.find(x=>x.id===id);
+  if(!r)return `<div class="wrap narrow section" style="padding:50px 18px"><div class="card empty">Request not found yet. If you just submitted it, wait a moment and refresh.</div></div>`;
+  return `<div class="wrap" style="padding:34px 18px"><div class="narrow"><div class="card">
+  <div class="center"><div style="font-size:3rem">✅</div><h2>Your request has been submitted!</h2><p class="meta">Save your request number to track progress.</p>
+  <div style="font-size:2rem;font-weight:800;color:var(--blue);letter-spacing:.04em">${r.id}</div></div>
+  ${r.photo?`<img src="${r.photo}" alt="Uploaded problem photo" style="width:100%;border-radius:14px;margin:14px 0">`:''}
+  <table style="min-width:0"><tr><th>Request Number</th><td>${r.id}</td></tr><tr><th>Service Category</th><td>${catOf(r.cat).icon} ${esc(catOf(r.cat).title)}</td></tr><tr><th>Problem Description</th><td>${esc(r.desc)}</td></tr><tr><th>Location</th><td>${esc(addr(r,true))}</td></tr><tr><th>Urgency</th><td>${r.urgency==='Urgent'?'<span class="badge warn">Urgent</span>':'Normal'}</td></tr><tr><th>Request Date</th><td>${fmt(r.createdAt)}</td></tr><tr><th>Current Status</th><td>${statusBadge(r.status)}</td></tr></table>
+  <a class="btn block" style="margin-top:16px" href="#/track/${r.id}">Track My Request</a></div></div></div>`;
+}
+function timeline(r){
+  if(r.status==='cancelled')return `<div class="note" style="background:var(--bad-l)">This request was cancelled.</div>`;
+  const idx=STEPS.findIndex(s=>s[0]===r.status);
+  return `<ol class="tl">${STEPS.map(([k,t,d],i)=>{const h=r.history.find(x=>x.s===k);return `<li class="${i<idx||(r.status==='completed'&&i<=idx)?'done':i===idx?'now':''}"><div class="dot">${i<idx||(r.status==='completed'&&i<=idx)?'✓':i+1}</div><b>${t}</b><span>${d}${h?' · '+fmt(h.t):''}</span></li>`}).join('')}</ol>`;
+}
+function trackView(id){
+  const r=id?S.requests.find(x=>x.id.toLowerCase()===id.toLowerCase()):null;
+  const tech=r&&r.techId?S.users.find(u=>u.id===r.techId):null;
+  return `<div class="wrap" style="padding:34px 18px"><div class="narrow">
+  <h2>Track your request</h2>
+  <div class="card" style="margin-bottom:16px"><div class="f"><label for="tid">Request number</label><input id="tid" placeholder="AYOS-102938" value="${esc(id||'')}" onkeydown="if(event.key==='Enter')goTrack()"></div><button class="btn block" onclick="goTrack()">Track</button></div>
+  ${id&&!r?`<div class="card empty">No request found for “${esc(id)}”. Check the number and try again.</div>`:''}
+  ${r?`<div class="card"><div class="row" style="justify-content:space-between"><b>${r.id}</b>${statusBadge(r.status)}</div><div class="meta" style="margin-bottom:16px">${catOf(r.cat).icon} ${esc(catOf(r.cat).title)} · ${fmt(r.createdAt)}</div>${timeline(r)}
+  ${tech?`<div class="note" style="background:var(--blue-l)">👨‍🔧 <b>${esc(tech.name)}</b> is assigned to your request.</div>`:''}
+  ${canReview(r)?reviewBox(r):''}${r.review?`<div class="note" style="background:var(--ok-l)">Your review: <span class="stars">${'★'.repeat(r.review.rating)}</span> ${esc(r.review.text)}</div>`:''}</div>`:''}
+  </div></div>`;
+}
+function goTrack(){const v=$('#tid').value.trim();if(v)location.hash='#/track/'+encodeURIComponent(v)}
+const canReview=r=>r.status==='completed'&&!r.review;
+function reviewBox(r){return `<div class="card" style="margin-top:12px"><h3>Leave a review</h3><div class="f"><label for="rv_r">Rating</label><select id="rv_r"><option value="5">★★★★★ Excellent</option><option value="4">★★★★ Good</option><option value="3">★★★ Okay</option><option value="2">★★ Poor</option><option value="1">★ Bad</option></select></div><div class="f"><textarea id="rv_t" placeholder="How was the service?" style="min-height:80px"></textarea></div><button class="btn" onclick="sendReview('${r.id}')">Submit review</button></div>`}
+async function sendReview(id){const r=S.requests.find(x=>x.id===id);r.review={rating:+$('#rv_r').value,text:$('#rv_t').value.trim()||'Great service.'};await put('requests',r);toast('Thanks for your review!');render()}
+
+/* auth */
+function authView(mode){
+  const login=mode==='login';
+  return `<div class="wrap" style="padding:34px 18px"><div class="narrow"><div class="card"><h2>${login?'Login':'Create your account'}</h2>
+  <form onsubmit="${login?'doLogin':'doSignup'}(event)">
+  ${login?'':`<div class="f"><label for="a_name">Full Name</label><input id="a_name" required autocomplete="name"></div><div class="f"><label for="a_phone">Phone Number</label><input id="a_phone" type="tel" required autocomplete="tel"></div>`}
+  <div class="f"><label for="a_email">Email</label><input id="a_email" type="email" required autocomplete="email"></div>
+  <div class="f"><label for="a_pw">Password</label><input id="a_pw" type="password" required minlength="6" autocomplete="${login?'current-password':'new-password'}"></div>
+  ${login?'':`<div class="f"><label for="a_pw2">Confirm Password</label><input id="a_pw2" type="password" required minlength="6" autocomplete="new-password"></div>`}
+  <button class="btn block">${login?'Login':'Sign Up'}</button></form>
+  <p class="meta center" style="margin:14px 0 0">${login?`No account? <a href="#/signup">Sign Up</a> · Are you a technician? <a href="#/tech-signup">Join as technician</a>`:`Already registered? <a href="#/login">Login</a> · Are you a technician? <a href="#/tech-signup">Join as technician</a>`}</p></div></div></div>`;
+}
+async function doLogin(e){e.preventDefault();const em=$('#a_email').value.trim().toLowerCase(),h=await hash(em,$('#a_pw').value);const u=S.users.find(x=>x.email===em&&x.pw===h);if(!u)return toast('Wrong email or password.');if(u.status==='suspended')return toast('This account is suspended. Contact support.');sess=u.id;ls.set('ayos_sess',sess);location.hash='#/dashboard';render()}
+async function doSignup(e){e.preventDefault();const em=$('#a_email').value.trim().toLowerCase();if($('#a_pw').value!==$('#a_pw2').value)return toast('Passwords do not match.');if(S.users.some(u=>u.email===em))return toast('That email is already registered.');const u={id:uid(),role:'customer',name:$('#a_name').value.trim(),phone:$('#a_phone').value.trim(),email:em,pw:await hash(em,$('#a_pw').value),status:'active',createdAt:Date.now()};if(await put('users',u)){sess=u.id;ls.set('ayos_sess',sess);location.hash='#/dashboard';render()}}
+
+let kycImg=null,avatarImg=null,certImg=null;
+function techSignupView(){
+  return `<div class="wrap" style="padding:34px 18px"><div class="narrow"><div class="card"><h2>Join as a technician</h2><p class="meta">Your account will be reviewed by AyosNow. You can accept requests once approved.</p>
+  <form onsubmit="doTechSignup(event)">
+  <div class="f"><label for="t_name">Full Name</label><input id="t_name" required></div>
+  <div class="two"><div class="f"><label for="t_phone">Phone Number</label><input id="t_phone" type="tel" required></div><div class="f"><label for="t_email">Email</label><input id="t_email" type="email" required></div></div>
+  <div class="f"><label for="t_addr">Address (barangay, city)</label><input id="t_addr" required></div>
+  <div class="two"><div class="f"><label for="t_spec">Service Specialization</label><select id="t_spec" required>${S.cats.filter(c=>c.active!==false).map(c=>`<option value="${c.id}">${c.icon} ${esc(c.title)}</option>`).join('')}</select></div><div class="f"><label for="t_yrs">Years of Experience</label><input id="t_yrs" type="number" min="0" max="60" required></div></div>
+  <div class="f"><label for="t_skills">Description of Skills</label><textarea id="t_skills" required style="min-height:90px"></textarea></div>
+  <div class="two"><div class="f"><label for="t_pw">Password</label><input id="t_pw" type="password" minlength="6" required></div><div class="f"><label for="t_pw2">Confirm Password</label><input id="t_pw2" type="password" minlength="6" required></div></div>
+  <div class="f"><label for="t_av">Profile Photo</label><input id="t_av" type="file" accept="image/*" required onchange="avatarImg=null;compress(this.files[0],300).then(x=>avatarImg=x)"></div>
+  <div class="f"><label for="t_id">Valid identification</label><input id="t_id" type="file" accept="image/*" required onchange="kycImg=null;compress(this.files[0],1000).then(x=>kycImg=x)"><div class="hint">Only the AyosNow admin can view your ID.</div></div>
+  <div class="f"><label for="t_cert">Relevant certifications/licenses (if applicable)</label><input id="t_cert" type="file" accept="image/*" onchange="certImg=null;compress(this.files[0],1000).then(x=>certImg=x)"></div>
+  <button class="btn block">Submit application</button></form></div></div></div>`;
+}
+async function doTechSignup(e){
+  e.preventDefault();
+  const em=$('#t_email').value.trim().toLowerCase();
+  if($('#t_pw').value!==$('#t_pw2').value)return toast('Passwords do not match.');
+  if(S.users.some(u=>u.email===em))return toast('That email is already registered.');
+  if(!kycImg||!avatarImg)return toast('Please wait for your photos to finish loading, then submit again.');
+  const id=uid();
+  const u={id,role:'technician',name:$('#t_name').value.trim(),phone:$('#t_phone').value.trim(),email:em,pw:await hash(em,$('#t_pw').value),address:$('#t_addr').value.trim(),spec:$('#t_spec').value,years:+$('#t_yrs').value,skills:$('#t_skills').value.trim(),avatar:avatarImg,hasId:true,hasCert:!!certImg,status:'pending',available:true,geo:null,createdAt:Date.now()};
+  if(S.db){try{await S.db.doc('kyc/'+id).set({id:kycImg,cert:certImg||''})}catch(er){return toast("Couldn't upload your ID. Try again later.")}}
+  else ls.set('ayos_kyc_'+id,JSON.stringify({id:kycImg,cert:certImg||''}));
+  if(await put('users',u)){sess=id;ls.set('ayos_sess',id);kycImg=avatarImg=certImg=null;toast('Application submitted. Waiting for admin approval.');location.hash='#/dashboard';render()}
+}
+
+/* customer dashboard */
+function customerView(u){
+  const mine=S.requests.filter(r=>r.uid===u.id);
+  const list=custTab==='done'?mine.filter(r=>r.status==='completed'):custTab==='open'?mine.filter(r=>!['completed','cancelled'].includes(r.status)):mine;
+  return `<div class="wrap" style="padding:26px 18px 50px"><h2>Hello, ${esc(u.name.split(' ')[0])}</h2>
+  <div class="row" style="margin-bottom:16px"><a class="btn" href="#/request">+ New request</a>${[['requests','My Requests'],['open','Active'],['done','Completed']].map(([k,t])=>`<button class="btn ghost ${custTab===k?'':'sm'}" style="${custTab===k?'':''}" onclick="custTab='${k}';render()">${t}</button>`).join('')}</div>
+  <div class="grid g2">${list.length?list.map(r=>{const t=r.techId&&S.users.find(x=>x.id===r.techId);return `<div class="card rq"><div class="row" style="justify-content:space-between"><b>${r.id}</b>${statusBadge(r.status)}</div><div>${catOf(r.cat).icon} ${esc(catOf(r.cat).title)}</div><div class="meta">${fmt(r.createdAt)}${t?' · Technician: '+esc(t.name):''}</div><div class="row"><a class="btn sm" href="#/request/${r.id}">View request</a><a class="btn sm ghost" href="#/track/${r.id}">Track status</a>${t?`<a class="btn sm ghost" href="#/request/${r.id}">Contact technician</a>`:''}${['received','finding','accepted'].includes(r.status)?`<button class="btn sm bad ghost" onclick="cancelReq('${r.id}')">Cancel</button>`:''}</div></div>`}).join(''):`<div class="card empty">No requests here yet.<br><a href="#/request">Create your first request</a></div>`}</div></div>`;
+}
+async function cancelReq(id){if(!confirm('Cancel this request?'))return;const r=S.requests.find(x=>x.id===id);r.status='cancelled';r.history.push({s:'cancelled',t:Date.now()});await put('requests',r);render()}
+
+/* request detail */
+function detailView(id){
+  const r=S.requests.find(x=>x.id===id),u=me();
+  if(!r)return `<div class="wrap" style="padding:40px 18px"><div class="card empty">Request not found.</div></div>`;
+  const isTech=u?.role==='technician',mineTech=isTech&&r.techId===u.id,mineCust=u&&r.uid===u.id,adm=isAdmin()&&!isTech&&!mineCust&&u?.role==='admin';
+  const reveal=mineTech||mineCust||isAdmin()&&!isTech;
+  const tech=r.techId&&S.users.find(x=>x.id===r.techId);
+  const d=isTech&&u.geo&&r.geo?dist(u.geo,r.geo):null;
+  return `<div class="wrap" style="padding:26px 18px 50px"><a href="javascript:history.back()">← Back</a>
+  <div class="grid g2" style="margin-top:12px;align-items:start">
+  <div class="card rq"><div class="row" style="justify-content:space-between"><h3 style="margin:0">${r.id}</h3>${statusBadge(r.status)}</div>
+  ${r.photo?`<img class="th" style="height:auto;max-height:340px" src="${r.photo}" alt="Problem photo">`:''}
+  <div>${catOf(r.cat).icon} <b>${esc(catOf(r.cat).title)}</b> ${r.urgency==='Urgent'?'<span class="badge warn">Urgent</span>':''}</div>
+  <p style="margin:0">${esc(r.desc)}</p>
+  <div class="meta">📍 ${esc(addr(r,reveal))}${d!=null?` · ${d.toFixed(1)} km away`:''}</div>
+  ${r.geo?`<a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.google.com/maps?q=${r.geo.lat},${r.geo.lng}">Open map</a>`:''}
+  <div class="meta">🗓️ Preferred: ${r.sched?fmt(r.sched):'Anytime'} · Submitted ${fmt(r.createdAt)}</div>
+  ${reveal?`<hr style="border:0;border-top:1px solid var(--line);width:100%"><div><b>${esc(r.name)}</b><br><a href="tel:${esc(r.phone)}">${esc(r.phone)}</a></div>`:`<div class="note">Customer name, phone and exact address are shared after you accept this job.</div>`}
+  ${isTech&&!r.techId&&r.status==='finding'&&u.status==='approved'?`<div class="row"><button class="btn ok" onclick="acceptJob('${r.id}')">Accept Job</button><button class="btn bad ghost" onclick="declineJob('${r.id}')">Decline</button></div>`:''}
+  ${isTech&&u.status!=='approved'?`<div class="note">Your account must be approved before you can accept jobs.</div>`:''}
+  ${mineTech&&r.status==='accepted'?`<button class="btn" onclick="setStatus('${r.id}','enroute')">I'm on the way</button>`:''}
+  ${mineTech&&r.status==='enroute'?`<button class="btn ok" onclick="setStatus('${r.id}','completed')">Mark repair completed</button>`:''}
+  ${mineCust&&['received','finding','accepted'].includes(r.status)?`<button class="btn bad ghost" onclick="cancelReq('${r.id}')">Cancel request</button>`:''}
+  </div>
+  <div class="grid">
+   <div class="card"><h3>Progress</h3>${timeline(r)}${tech?`<div class="note" style="background:var(--blue-l)">👨‍🔧 ${esc(tech.name)} · ${esc(tech.phone)}</div>`:''}${mineCust&&canReview(r)?reviewBox(r):''}</div>
+   ${(mineTech||mineCust)&&tech?`<div class="card"><h3>Messages</h3><div class="msgs" id="msgs">${(r.messages||[]).map(m=>`<div class="msg ${m.from===u.id?'me':''}">${esc(m.text)}</div>`).join('')||'<div class="meta">No messages yet.</div>'}</div><div class="row" style="flex-wrap:nowrap"><input id="mtext" placeholder="Write a message" onkeydown="if(event.key==='Enter')sendMsg('${r.id}')"><button class="btn" onclick="sendMsg('${r.id}')">Send</button></div></div>`:''}
+  </div></div></div>`;
+}
+async function sendMsg(id){const t=$('#mtext').value.trim();if(!t)return;const r=S.requests.find(x=>x.id===id);r.messages=[...(r.messages||[]),{from:sess,text:t,t:Date.now()}];$('#mtext').value='';await put('requests',r);render()}
+async function acceptJob(id){const r=S.requests.find(x=>x.id===id);if(r.techId)return toast('Another technician already took this job.');r.techId=sess;r.status='accepted';r.history.push({s:'accepted',t:Date.now()});if(await put('requests',r)){toast('Job accepted!');render()}}
+async function declineJob(id){const r=S.requests.find(x=>x.id===id);r.declined=[...(r.declined||[]),sess];await put('requests',r);location.hash='#/dashboard';render()}
+async function setStatus(id,s){const r=S.requests.find(x=>x.id===id);r.status=s;r.history.push({s,t:Date.now()});await put('requests',r);render()}
+
+/* technician dashboard */
+function techView(u){
+  const tabs=[['dashboard','Dashboard'],['available','Available Requests'],['jobs','My Jobs'],['messages','Messages'],['profile','Profile']];
+  const mine=S.requests.filter(r=>r.techId===u.id);
+  const avail=S.requests.filter(r=>r.status==='finding'&&!r.techId&&!(r.declined||[]).includes(u.id)&&(!tFilter.cat||r.cat===tFilter.cat)&&(!tFilter.urg||r.urgency===tFilter.urg)&&(!tFilter.loc||addr(r,false).toLowerCase().includes(tFilter.loc.toLowerCase())));
+  let body='';
+  if(u.status!=='approved')body+=`<div class="note">${u.status==='pending'?'⏳ Your application is waiting for admin approval. You can browse requests, but you cannot accept jobs yet.':u.status==='rejected'?'Your application was not approved. Contact support for details.':'This account is suspended.'}</div>`;
+  if(techTab==='dashboard')body+=`<div class="grid g3"><div class="card stat"><b>${avail.length}</b><span>Available requests</span></div><div class="card stat"><b>${mine.filter(r=>!['completed','cancelled'].includes(r.status)).length}</b><span>Active jobs</span></div><div class="card stat"><b>${mine.filter(r=>r.status==='completed').length}</b><span>Completed jobs</span></div></div>`;
+  if(techTab==='available'){
+    body+=`<div class="grid g3" style="margin-bottom:14px"><div><label for="tf1">Category</label><select id="tf1" onchange="tFilter.cat=this.value;render()"><option value="">All</option>${S.cats.map(c=>`<option value="${c.id}" ${tFilter.cat===c.id?'selected':''}>${c.icon} ${esc(c.title)}</option>`).join('')}</select></div><div><label for="tf2">Urgency</label><select id="tf2" onchange="tFilter.urg=this.value;render()"><option value="">Any</option><option ${tFilter.urg==='Urgent'?'selected':''}>Urgent</option><option ${tFilter.urg==='Normal'?'selected':''}>Normal</option></select></div><div><label for="tf3">Location</label><input id="tf3" value="${esc(tFilter.loc)}" placeholder="Barangay or city" onchange="tFilter.loc=this.value;render()"></div></div>`;
+    body+=`<div class="grid g2">${avail.length?avail.map(r=>reqCard(r,u)).join(''):`<div class="card empty">No open requests right now. New ones appear here automatically.</div>`}</div>`;
+  }
+  if(techTab==='jobs')body+=`<div class="grid g2">${mine.length?mine.map(r=>reqCard(r,u)).join(''):`<div class="card empty">You have no jobs yet.</div>`}</div>`;
+  if(techTab==='messages')body+=mine.length?`<div class="grid">${mine.map(r=>{const l=(r.messages||[]).slice(-1)[0];return `<a class="card" href="#/request/${r.id}" style="color:inherit"><b>${r.id} · ${esc(r.name)}</b><div class="meta">${l?esc(l.text):'No messages yet'}</div></a>`}).join('')}</div>`:`<div class="card empty">Messages with customers appear after you accept a job.</div>`;
+  if(techTab==='profile')body+=`<div class="card narrow" style="margin:0"><div class="row" style="flex-wrap:nowrap;align-items:center">${u.avatar?`<img src="${u.avatar}" alt="" style="width:72px;height:72px;border-radius:50%;object-fit:cover">`:''}<div><h3 style="margin:0">${esc(u.name)}</h3><div class="meta">${catOf(u.spec).icon} ${esc(catOf(u.spec).title)} · ${u.years} yrs</div></div></div><p style="margin-top:14px">${esc(u.skills)}</p><div class="meta">${esc(u.phone)} · ${esc(u.email)}<br>${esc(u.address)}</div><div class="row" style="margin-top:14px"><button class="btn sm ${u.available!==false?'ok':'ghost'}" onclick="toggleAvail()">${u.available!==false?'🟢 Available':'⚪ Busy'} (tap to change)</button><button class="btn sm ghost" onclick="setTechGeo()">📍 Set my service location</button></div><div class="hint">${u.geo?'Service location set. Distances show on requests.':'Set it to see distance to customers.'}</div></div>`;
+  return `<div class="wrap"><div class="dash"><nav class="side" aria-label="Technician">${tabs.map(([k,t])=>`<button class="${techTab===k?'on':''}" onclick="techTab='${k}';render()">${t}</button>`).join('')}<button onclick="logout()">Logout</button></nav><div>${body}</div></div></div>`;
+}
+function reqCard(r,u){const d=u.geo&&r.geo?dist(u.geo,r.geo):null;return `<div class="card rq">${r.photo?`<img class="th" src="${r.photo}" alt="Problem photo">`:''}<div class="row" style="justify-content:space-between"><b>${r.id}</b>${r.urgency==='Urgent'?'<span class="badge warn">Urgent</span>':statusBadge(r.status)}</div><div>${catOf(r.cat).icon} ${esc(catOf(r.cat).title)}</div><div style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">${esc(r.desc)}</div><div class="meta">📍 ${esc(addr(r,false))}${d!=null?' · '+d.toFixed(1)+' km':''}<br>🕒 ${fmt(r.createdAt)}</div><div class="row"><a class="btn sm ghost" href="#/request/${r.id}">View Details</a>${r.status==='finding'&&!r.techId&&u.status==='approved'?`<button class="btn sm ok" onclick="acceptJob('${r.id}')">Accept Request</button>`:''}</div></div>`}
+async function toggleAvail(){const u=me();u.available=u.available===false;await put('users',u);render()}
+function setTechGeo(){getGPS(async g=>{const u=me();u.geo=g;await put('users',u);toast('Location saved.');render()})}
+
+/* admin */
+function adminView(){
+  const T=S.users.filter(u=>u.role==='technician'),C=S.users.filter(u=>u.role==='customer'),R=S.requests;
+  const tabs=['overview','users','technicians','requests','categories','reports','settings'];
+  let b='';
+  const reqRow=r=>{const ts=T.filter(t=>t.status==='approved');return `<tr><td><b>${r.id}</b><br><span class="meta">${fmt(r.createdAt)}</span></td><td>${catOf(r.cat).icon} ${esc(catOf(r.cat).title)}</td><td>${esc(r.name)}<br><span class="meta">${esc(addr(r,false))}</span></td><td>${statusBadge(r.status)}</td><td><select aria-label="Assign technician" onchange="adminAssign('${r.id}',this.value)"><option value="">Assign…</option>${ts.map(t=>`<option value="${t.id}" ${r.techId===t.id?'selected':''}>${esc(t.name)}</option>`).join('')}</select><select aria-label="Update status" style="margin-top:6px" onchange="adminStatus('${r.id}',this.value)"><option value="">Set status…</option>${[...STEPS.map(s=>[s[0],s[1]]),['cancelled','Cancelled']].map(([k,t])=>`<option value="${k}">${t}</option>`).join('')}</select><a class="btn sm ghost" style="margin-top:6px" href="#/request/${r.id}">View</a></td></tr>`};
+  if(adminTab==='overview')b=`<div class="grid g3">${[['Total users',C.length],['Total technicians',T.filter(t=>t.status==='approved').length],['Active requests',R.filter(r=>!['completed','cancelled'].includes(r.status)).length],['Completed requests',R.filter(r=>r.status==='completed').length],['Cancelled requests',R.filter(r=>r.status==='cancelled').length],['Pending technician applications',T.filter(t=>t.status==='pending').length]].map(([l,n])=>`<div class="card stat"><b>${n}</b><span>${l}</span></div>`).join('')}</div>`;
+  if(adminTab==='users')b=`<div class="card tablewrap"><table><tr><th>Name</th><th>Contact</th><th>Status</th><th></th></tr>${C.map(u=>`<tr><td>${esc(u.name)}</td><td>${esc(u.email)}<br>${esc(u.phone)}</td><td>${u.status==='suspended'?'<span class="badge bad">Suspended</span>':'<span class="badge ok">Active</span>'}</td><td><button class="btn sm ghost ${u.status==='suspended'?'':'bad'}" onclick="adminUser('${u.id}','${u.status==='suspended'?'active':'suspended'}')">${u.status==='suspended'?'Reactivate':'Suspend'}</button></td></tr>`).join('')||'<tr><td colspan=4 class="empty">No customers yet.</td></tr>'}</table></div>`;
+  if(adminTab==='technicians')b=`<div class="grid g2">${T.map(t=>`<div class="card"><div class="row" style="flex-wrap:nowrap;align-items:center">${t.avatar?`<img src="${t.avatar}" alt="" style="width:56px;height:56px;border-radius:50%;object-fit:cover">`:''}<div><b>${esc(t.name)}</b><div class="meta">${catOf(t.spec).icon} ${esc(catOf(t.spec).title)} · ${t.years} yrs</div></div></div><p class="meta" style="margin:10px 0">${esc(t.skills)}<br>${esc(t.phone)} · ${esc(t.email)}<br>${esc(t.address)}</p><span class="badge ${t.status==='approved'?'ok':t.status==='pending'?'warn':'bad'}">${t.status}</span><div class="row" style="margin-top:10px"><button class="btn sm ghost" onclick="viewKyc('${t.id}')">View ID${t.hasCert?' & certificate':''}</button>${t.status!=='approved'?`<button class="btn sm ok" onclick="adminUser('${t.id}','approved')">Approve</button>`:''}${t.status==='pending'?`<button class="btn sm bad ghost" onclick="adminUser('${t.id}','rejected')">Reject</button>`:''}${t.status==='approved'?`<button class="btn sm bad ghost" onclick="adminUser('${t.id}','suspended')">Suspend</button>`:''}</div><div id="kyc_${t.id}"></div></div>`).join('')||'<div class="card empty">No technician applications yet.</div>'}</div>`;
+  if(adminTab==='requests')b=`<div class="card tablewrap"><table><tr><th>Request</th><th>Service</th><th>Customer</th><th>Status</th><th>Actions</th></tr>${R.map(reqRow).join('')||'<tr><td colspan=5 class="empty">No requests yet.</td></tr>'}</table></div>`;
+  if(adminTab==='categories')b=`<div class="card"><div class="row" style="margin-bottom:12px"><input id="nc_i" placeholder="Icon" style="width:80px"><input id="nc_t" placeholder="Category name" style="flex:1;min-width:160px"><input id="nc_d" placeholder="Short description" style="flex:2;min-width:180px"><button class="btn" onclick="addCat()">Add</button></div>${S.cats.map(c=>`<div class="row" style="justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--line)"><span>${c.icon} <b>${esc(c.title)}</b> <span class="meta">${esc(c.desc)}</span></span><span class="row"><button class="btn sm ghost" onclick="toggleCat('${c.id}')">${c.active!==false?'Hide':'Show'}</button>${DEFAULT_CATS.some(d=>d.id===c.id)?'':`<button class="btn sm bad ghost" onclick="delCat('${c.id}')">Delete</button>`}</span></div>`).join('')}</div>`;
+  if(adminTab==='reports'){const mx=Math.max(1,...S.cats.map(c=>R.filter(r=>r.cat===c.id).length));b=`<div class="card"><h3>Requests by service</h3>${S.cats.map(c=>{const n=R.filter(r=>r.cat===c.id).length;return `<div style="margin:10px 0"><div class="row" style="justify-content:space-between"><span>${c.icon} ${esc(c.title)}</span><b>${n}</b></div><div class="bar"><i style="width:${n/mx*100}%"></i></div></div>`}).join('')}<p class="meta">Completion rate: ${R.length?Math.round(R.filter(r=>r.status==='completed').length/R.length*100):0}%</p></div>`}
+  if(adminTab==='settings')b=`<div class="card narrow" style="margin:0"><div class="f"><label for="s_e">Support email</label><input id="s_e" value="${esc(S.cfg.email)}"></div><div class="f"><label for="s_p">Support phone</label><input id="s_p" value="${esc(S.cfg.phone)}"></div><button class="btn" onclick="saveSettings()">Save settings</button><p class="hint" style="margin-top:14px">Data mode: ${S.mode==='cloud'?'saved to this page’s shared database':'preview only, saved in this browser'}.</p></div>`;
+  return `<div class="wrap"><div class="dash"><nav class="side" aria-label="Admin">${tabs.map(t=>`<button class="${adminTab===t?'on':''}" onclick="adminTab='${t}';render()">${t[0].toUpperCase()+t.slice(1)}</button>`).join('')}</nav><div>${S.mode==='local'?'<div class="note">Preview mode: data is saved only in this browser.</div>':''}${b}</div></div></div>`;
+}
+async function adminUser(id,s){const u=S.users.find(x=>x.id===id);u.status=s;await put('users',u);render()}
+async function adminAssign(id,tid){if(!tid)return;const r=S.requests.find(x=>x.id===id);r.techId=tid;if(['received','finding'].includes(r.status)){r.status='accepted';r.history.push({s:'accepted',t:Date.now()})}await put('requests',r);render()}
+async function adminStatus(id,s){if(!s)return;const r=S.requests.find(x=>x.id===id);r.status=s;r.history.push({s,t:Date.now()});await put('requests',r);render()}
+async function viewKyc(id){const el=$('#kyc_'+id);let d=null;try{if(S.db){const s=await S.db.doc('kyc/'+id).get();d=s.data()}else d=JSON.parse(ls.get('ayos_kyc_'+id)||'null')}catch(e){}el.innerHTML=d?`<img src="${d.id}" alt="ID" style="width:100%;border-radius:12px;margin-top:10px">${d.cert?`<img src="${d.cert}" alt="Certificate" style="width:100%;border-radius:12px;margin-top:10px">`:''}`:'<div class="meta">No document available.</div>'}
+async function addCat(){const t=$('#nc_t').value.trim();if(!t)return;S.cats.push({id:'c'+uid(),icon:$('#nc_i').value||'🛠️',title:t,desc:$('#nc_d').value,kw:t.toLowerCase(),active:true});await saveConfig();render()}
+async function toggleCat(id){const c=S.cats.find(x=>x.id===id);c.active=c.active===false;await saveConfig();render()}
+async function delCat(id){S.cats=S.cats.filter(x=>x.id!==id);await saveConfig();render()}
+async function saveSettings(){S.cfg={email:$('#s_e').value,phone:$('#s_p').value};await saveConfig();toast('Settings saved.')}
+
+/* misc pages */
+function textPage(t,body){return `<div class="wrap" style="padding:34px 18px"><div class="narrow" style="max-width:720px"><h2>${t}</h2>${body}</div></div>`}
+const pages={
+  about:()=>textPage('About AyosNow','<p>AyosNow helps people get household, technical and maintenance problems fixed. Take a photo, describe the problem, and a verified service professional can pick it up.</p>'),
+  contact:()=>textPage('Contact',`<p>Email: <a href="mailto:${esc(S.cfg.email)}">${esc(S.cfg.email)}</a><br>Phone: ${esc(S.cfg.phone)}</p>`),
+  privacy:()=>textPage('Privacy Policy','<p>We collect the details you give us (name, contact number, photos, location) only to match your request with a service provider. Technicians see only what they need to evaluate a job; your name, number and full address are shared after a technician accepts. Replace this sample text with your official policy before launch.</p>'),
+  terms:()=>textPage('Terms &amp; Conditions','<p>AyosNow connects customers with independent service providers. Service agreements, pricing and responsibilities should be confirmed between the customer and the provider. Replace this sample text with your official terms before launch.</p>')
+};
+
+/* ---------- router ---------- */
+function render(soft){
+  if(!S.ready)return;
+  if(soft&&document.activeElement&&/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;
+  const h=location.hash.replace(/^#/,'')||'/';
+  const [,p1,p2]=h.split('/');
+  const u=me();navLinks();
+  let v='';
+  switch(p1){
+    case '':v=homeView();break;
+    case 'services':case 'how':case 'faq':v=homeView();break;
+    case 'request':v=p2?detailView(p2):`<div class="wrap" style="padding:30px 18px"><div class="narrow" style="max-width:720px"><h2>Request a service</h2>${requestForm()}</div></div>`;break;
+    case 'confirm':v=confirmView(p2);break;
+    case 'track':v=trackView(p2?decodeURIComponent(p2):'');break;
+    case 'login':v=authView('login');break;
+    case 'signup':v=authView('signup');break;
+    case 'tech-signup':v=techSignupView();break;
+    case 'dashboard':v=!u?authView('login'):u.role==='technician'?techView(u):customerView(u);break;
+    case 'admin':v=isAdmin()?adminView():`<div class="wrap" style="padding:40px 18px"><div class="card empty">Admin access is only for the AyosNow owner. Open this page while signed in to claude.ai as the owner.</div></div>`;break;
+    default:v=pages[p1]?pages[p1]():homeView();
+  }
+  $('#app').innerHTML=v;
+  $('#mnav').classList.remove('open');
+  if(['services','how','faq'].includes(p1)&&!soft)setTimeout(()=>{document.getElementById(p1)?.scrollIntoView()},30);
+  else if(!soft&&p1!==undefined)window.scrollTo(0,0);
+  if($('#finder'))renderFinder();
+}
+window.addEventListener('hashchange',()=>render());
+initStore().then(()=>render());
+</script>
+</body>
+</html>
